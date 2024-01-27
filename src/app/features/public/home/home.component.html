@@ -1,0 +1,58 @@
+<div class="container">
+  <!-- Card -->
+  <!-- Adjust card & img size and add overflow for short description -->
+  <div class="my-5">
+    <h3 class="charcoal charm">
+      <span class="formal burg fs-2">Dive</span> into the enchanting world of
+      <span class="burg formal fs-4"> Inkwell Serenades</span>, where verses
+      come alive, weaving a symphony of ink and emotion across the pages.
+      <span class="burg formal fs-5">Immerse</span> yourself in the poetic tales
+      that unfold, each line a melody, and every word a brushstroke painting
+      vivid landscapes of <span class="burg formal fs-5">emotion</span>. Join us
+      on this lyrical <span class="burg formal fs-5">journey,</span> as we
+      celebrate the artistry of language and the beauty of
+      <span class="burg formal fs-5">heartfelt expression</span>.
+    </h3>
+    <hr class="divide" />
+    <div class="row align-items-strech">
+      <ng-container *ngIf="blogs$ | async as blogs">
+        <div class="col-12 col-md-4 mb-3 mt-5" *ngFor="let blog of blogs">
+          <div class="card h-100 background card border-0">
+            <img
+              [src]="blog.featuredImgUrl"
+              class="card-img-top"
+              style="height: 300px"
+              [alt]="blog.title"
+            />
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title blog-text deep-green">
+                {{ blog.title }}
+              </h4>
+              <hr class="divide" />
+              <p class="card-text markdown-content">
+                {{ blog.shortDescription }}
+              </p>
+              <span class="d-flex align-items-end" style="flex: 1">
+                <a
+                  [routerLink]="['/blog', blog.urlHandle]"
+                  class="btn formal burg fs-5 burgundy-bg btn-hover border-0"
+                >
+                  Unveil
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<footer class="text-center deep-green formal">
+  ©Aaliyah M
+  <a
+    href="https://github.com/Aaliyah1699"
+    target="_blank"
+    rel="noopener noreferrer"
+    ><i class="fa-brands fa-github burg"></i
+  ></a>
+</footer>
